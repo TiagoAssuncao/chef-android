@@ -29,3 +29,9 @@ execute "unzip studio" do
     action :run
     not_if {File.exist?("/opt/android-studio/android-studio")}
 end
+
+execute "run studio" do
+    command "sh /opt/android-studio/android-studio/bin/studio.sh"
+    user "root"
+    action :run
+end
