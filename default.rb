@@ -22,3 +22,10 @@ remote_file '/opt/android-studio/android-studio.zip' do
     mode '0755'
     action :create
 end
+
+execute "unzip studio" do
+    command "unzip /opt/android-studio/android-studio.zip -d /opt/android-studio"
+    user "root"
+    action :run
+    not_if {File.exist?("/opt/android-studio/android-studio")}
+end
