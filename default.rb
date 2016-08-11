@@ -15,10 +15,10 @@ directory '/opt/android-studio' do
     action :create
 end
 
-# remote_file '/var/www/index.php' do
-#     source 'http://somesite.com/index.php'
-#     owner 'root'
-#     group 'root'
-#     mode '0755'
-#     action :create
-# end
+remote_file '/opt/android-studio/android-studio.zip' do
+    source android_studio_path
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+end
