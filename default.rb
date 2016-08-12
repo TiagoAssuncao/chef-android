@@ -34,8 +34,25 @@ execute "unzip studio" do
     not_if {File.exist?("/opt/android-studio/android-studio")}
 end
 
-execute "run studio" do
-    command "sh /opt/android-studio/android-studio/bin/studio.sh"
+
+remote_file '/opt/android-studio/android-sdk.tgz' do
+    source 'https://dl.google.com/android/' + android_sdk_file
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+end
+
+execute "untar sdk" do
+    command "tar -xvzf /opt/android-studio/android-sdk.tgz -C /opt/android-studio --strip-components=1"
     user "root"
     action :run
+    not_if {File.exist?("/opt/android-studio/android-sdk")}
 end
+
+
+# execute "run studio" do
+#     command "sh /opt/android-studio/android-studio/bin/studio.sh"
+#     user "root"
+#     action :run
+# end
