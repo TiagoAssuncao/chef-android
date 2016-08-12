@@ -1,9 +1,3 @@
-#packages needed
-# execute 'apt-get update'
-package 'vim'
-package 'wget'
-package 'git'
-
 android_studio_version = "2.1.2.0"
 android_studio_build = "143.2915827"
 android_studio_file = android_studio_version + '/android-studio-ide-' + android_studio_build + '-linux.zip'
@@ -11,6 +5,22 @@ android_studio_file = android_studio_version + '/android-studio-ide-' + android_
 android_sdk_file = 'android-sdk_r24.4.1-linux.tgz'
 
 android_studio_path = 'https://dl.google.com/dl/android/studio/ide-zips/' + android_studio_file
+
+file '/etc/apt/sources.list.d/webupd8team-java.list' do
+    content 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
+deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
+    mode '0755'
+    owner 'root'
+    group 'root'
+end
+
+#packages needed
+execute 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886'
+execute 'apt-get update'
+package 'oracle-java8-installer'
+package 'vim'
+package 'wget'
+package 'git'
 
 directory '/opt/android-studio' do
     owner 'root'
