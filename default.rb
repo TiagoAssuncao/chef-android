@@ -6,7 +6,11 @@ package 'git'
 
 android_studio_version = "2.1.2.0"
 android_studio_build = "143.2915827"
-android_studio_path = 'https://dl.google.com/dl/android/studio/ide-zips/' + android_studio_version + '/android-studio-ide-' + android_studio_build + '-linux.zip'
+android_studio_file = android_studio_version + '/android-studio-ide-' + android_studio_build + '-linux.zip'
+
+android_sdk_file = 'android-sdk_r24.4.1-linux.tgz'
+
+android_studio_path = 'https://dl.google.com/dl/android/studio/ide-zips/' + android_studio_file
 
 directory '/opt/android-studio' do
     owner 'root'
