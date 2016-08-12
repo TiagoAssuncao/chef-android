@@ -47,9 +47,14 @@ execute "untar sdk" do
     command "tar -xvzf /opt/android-studio/android-sdk.tgz -C /opt/android-studio --strip-components=1"
     user "root"
     action :run
-    not_if {File.exist?("/opt/android-studio/android-sdk")}
+    not_if {File.exist?("/opt/android-studio/tools")}
 end
 
+execute "update sdk" do
+    command "/opt/android-studio/tools/android update sdk --no-ui --filter extra"
+    user "root"
+    action :run
+end
 
 # execute "run studio" do
 #     command "sh /opt/android-studio/android-studio/bin/studio.sh"
