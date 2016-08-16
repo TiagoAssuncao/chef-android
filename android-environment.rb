@@ -66,8 +66,8 @@ execute "update sdk" do
     action :run
 end
 
-# execute "run studio" do
-#     command "sh /opt/android-studio/android-studio/bin/studio.sh"
-#     user "root"
-#     action :run
-# end
+execute "run studio" do
+    command "sh /opt/android-studio/android-studio/bin/studio.sh"
+    user "root"
+    action :run
+end
