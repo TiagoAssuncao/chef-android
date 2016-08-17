@@ -1,3 +1,12 @@
+user 'android' do
+    comment 'Android user'
+    uid '1234'
+    gid '1234'
+    home '/home/android'
+    shell '/bin/bash'
+    password 'android'
+end
+
 android_studio_version = "2.1.2.0"
 android_studio_build = "143.2915827"
 android_studio_file = android_studio_version + '/android-studio-ide-' + android_studio_build + '-linux.zip'
