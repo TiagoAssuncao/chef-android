@@ -5,7 +5,7 @@ user 'android' do
     gid 'root'
     home '/home/android'
     shell '/bin/bash'
-    password 'android'
+    action :create
 end
 
 # Adding variables to get android studio and sdk
@@ -27,7 +27,8 @@ deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
 end
 
 # Install jdk oracle
-execute 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886'
+# execute 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886'
+execute 'add-apt-repository ppa:webupd8team/java'
 execute 'apt-get update'
 execute "install jdk oracle" do
     command " apt-get install -y --force-yes oracle-java8-installer"
