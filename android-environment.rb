@@ -44,14 +44,14 @@ package 'vim'
 package 'wget'
 package 'git'
 
-directory '/opt/android-studio' do
+directory '/home/android/android-studio' do
     owner 'root'
     group 'root'
     mode '0755'
     action :create
 end
 
-remote_file '/opt/android-studio/android-studio.zip' do
+remote_file '/home/android/android-studio/android-studio.zip' do
     source android_studio_path
     owner 'root'
     group 'root'
@@ -60,14 +60,14 @@ remote_file '/opt/android-studio/android-studio.zip' do
 end
 
 execute "unzip studio" do
-    command "unzip /opt/android-studio/android-studio.zip -d /opt/android-studio"
+    command "unzip /home/android/android-studio/android-studio.zip -d /home/android/android-studio"
     user "root"
     action :run
-    not_if {File.exist?("/opt/android-studio/android-studio")}
+    not_if {File.exist?("/home/android/android-studio/android-studio")}
 end
 
 
-remote_file '/opt/android-studio/android-sdk.tgz' do
+remote_file '/home/android/android-studio/android-sdk.tgz' do
     source android_sdk_path
     owner 'root'
     group 'root'
@@ -76,20 +76,20 @@ remote_file '/opt/android-studio/android-sdk.tgz' do
 end
 
 execute "untar sdk" do
-    command "tar -xvzf /opt/android-studio/android-sdk.tgz -C /opt/android-studio --strip-components=1"
+    command "tar -xvzf /home/android/android-studio/android-sdk.tgz -C /home/android/android-studio --strip-components=1"
     user "root"
     action :run
-    not_if {File.exist?("/opt/android-studio/tools")}
+    not_if {File.exist?("/home/android/android-studio/tools")}
 end
 
 execute "update sdk" do
-    command "/opt/android-studio/tools/android update sdk --no-ui"
+    command "/home/android/android-studio/tools/android update sdk --no-ui"
     user "root"
     action :run
 end
 
 execute "run studio" do
-    command "sh /opt/android-studio/android-studio/bin/studio.sh"
+    command "sh /home/android/android-studio/android-studio/bin/studio.sh"
     user "root"
     action :run
 end
