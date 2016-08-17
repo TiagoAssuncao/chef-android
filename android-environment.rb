@@ -43,6 +43,7 @@ end
 package 'vim'
 package 'wget'
 package 'git'
+package 'unzip'
 
 directory '/home/android/android-studio' do
     owner 'android'
