@@ -59,7 +59,7 @@ end
 
 
 remote_file '/opt/android-studio/android-sdk.tgz' do
-    source 'https://dl.google.com/android/' + android_sdk_file
+    source android_sdk_path
     owner 'root'
     group 'root'
     mode '0755'
@@ -74,7 +74,7 @@ execute "untar sdk" do
 end
 
 execute "update sdk" do
-    command "/opt/android-studio/tools/android update sdk --no-ui --filter extra"
+    command "/opt/android-studio/tools/android update sdk --no-ui"
     user "root"
     action :run
 end
