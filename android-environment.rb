@@ -45,23 +45,23 @@ package 'wget'
 package 'git'
 
 directory '/home/android/android-studio' do
-    owner 'root'
-    group 'root'
+    owner 'android'
+    group 'android'
     mode '0755'
     action :create
 end
 
 remote_file '/home/android/android-studio/android-studio.zip' do
     source android_studio_path
-    owner 'root'
-    group 'root'
+    owner 'android'
+    group 'android'
     mode '0755'
     action :create
 end
 
 execute "unzip studio" do
     command "unzip /home/android/android-studio/android-studio.zip -d /home/android/android-studio"
-    user "root"
+    user "android"
     action :run
     not_if {File.exist?("/home/android/android-studio/android-studio")}
 end
@@ -69,27 +69,27 @@ end
 
 remote_file '/home/android/android-studio/android-sdk.tgz' do
     source android_sdk_path
-    owner 'root'
-    group 'root'
+    owner 'android'
+    group 'android'
     mode '0755'
     action :create
 end
 
 execute "untar sdk" do
     command "tar -xvzf /home/android/android-studio/android-sdk.tgz -C /home/android/android-studio --strip-components=1"
-    user "root"
+    user "android"
     action :run
     not_if {File.exist?("/home/android/android-studio/tools")}
 end
 
 execute "update sdk" do
     command "/home/android/android-studio/tools/android update sdk --no-ui"
-    user "root"
+    user "android"
     action :run
 end
 
 execute "run studio" do
     command "sh /home/android/android-studio/android-studio/bin/studio.sh"
-    user "root"
+    user "android"
     action :run
 end
