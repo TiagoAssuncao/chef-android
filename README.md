@@ -16,5 +16,7 @@ Many packages will be instaled:
 
 To install this recipe is so easy. You just need run this command:
 ```sh
+git clone https://github.com/TiagoAssuncao/chef-android-linux
+cd chef-android-linux
 sh install-components.sh
 ```
