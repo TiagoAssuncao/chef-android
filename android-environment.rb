@@ -31,7 +31,7 @@ end
 execute 'add-apt-repository ppa:webupd8team/java'
 execute 'apt-get update'
 execute "install jdk oracle" do
-    command " apt-get install -y --force-yes oracle-java8-installer"
+    command " apt-get install oracle-java8-installer"
     user "root"
     action :run
 end
