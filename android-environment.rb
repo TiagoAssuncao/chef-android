@@ -18,7 +18,19 @@ end
 #packages needed
 execute 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886'
 execute 'apt-get update'
-package 'oracle-java8-installer'
+
+execute "install jdk oracle" do
+    command " apt-get install -y --force-yes oracle-java8-installer"
+    user "root"
+    action :run
+end
+
+execute "install jdk oracle" do
+    command " apt-get install -y --force-yes oracle-java8-installer"
+    user "root"
+    action :run
+end
+
 package 'vim'
 package 'wget'
 package 'git'
