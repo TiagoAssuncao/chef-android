@@ -8,6 +8,14 @@ user 'android' do
     action :create
 end
 
+# Creating directory home to android
+directory '/home/android/' do
+    owner 'android'
+    group 'android'
+    mode '0755'
+    action :create
+end
+
 # Adding variables to get android studio and sdk
 android_studio_version = "2.1.2.0"
 android_studio_build = "143.2915827"
