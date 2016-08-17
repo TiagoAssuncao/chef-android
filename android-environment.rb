@@ -25,8 +25,8 @@ execute "install jdk oracle" do
     action :run
 end
 
-execute "install jdk oracle" do
-    command " apt-get install -y --force-yes oracle-java8-installer"
+execute "install some libs" do
+    command " apt-get install -y --force-yes  lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6"
     user "root"
     action :run
 end
