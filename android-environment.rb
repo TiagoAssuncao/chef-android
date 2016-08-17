@@ -11,7 +11,6 @@ end
 # Creating directory home to android
 directory '/home/android/' do
     owner 'android'
-    group 'android'
     mode '0755'
     action :create
 end
@@ -60,7 +59,6 @@ package 'unzip'
 # Creating directory android on user android
 directory '/home/android/android-studio' do
     owner 'android'
-    group 'android'
     mode '0755'
     action :create
 end
@@ -69,7 +67,6 @@ end
 remote_file '/home/android/android-studio/android-studio.zip' do
     source android_studio_path
     owner 'android'
-    group 'android'
     mode '0755'
     action :create
 end
@@ -85,7 +82,6 @@ end
 remote_file '/home/android/android-studio/android-sdk.tgz' do
     source android_sdk_path
     owner 'android'
-    group 'android'
     mode '0755'
     action :create
 end
