@@ -100,9 +100,14 @@ execute "update sdk" do
     action :run
 end
 
-# Execute android studio using sh
-execute "run studio" do
-    command "sh /home/android/android-studio/android-studio/bin/studio.sh"
-    user "android"
+execute "remove bin file" do
+    command"rm -r /etc/bin/android-studio"
+    user "root"
+    action :run
+end
+
+execute "adding bin file" do
+    command"ln -s /home/android/android-studio/android-studio/bin/studio.sh /etc/bin/android-studio"
+    user "root"
     action :run
 end
