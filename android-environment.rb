@@ -101,13 +101,14 @@ execute "update sdk" do
 end
 
 execute "remove bin file" do
-    command"rm -r /etc/bin/android-studio"
+    command"rm -f /usr/bin/android-studio"
     user "root"
     action :run
 end
 
+# Make a symbolic link to studio on /usr/bin
 execute "adding bin file" do
-    command"ln -s /home/android/android-studio/android-studio/bin/studio.sh /etc/bin/android-studio"
+    command"ln -s /home/android/android-studio/android-studio/bin/studio.sh /usr/bin/android-studio"
     user "root"
     action :run
 end
